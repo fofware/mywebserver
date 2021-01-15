@@ -15,7 +15,7 @@ COPY *.sh /scripts/
 RUN chmod +x /scripts/*.sh
 
 # /webroots/DOMAIN.TLD/.well-known/... files go here
-VOLUME ./webroots:/webroots
+VOLUME /webroots
 # This handles book-keeping files for Letsencrypt
 VOLUME /etc/letsencrypt
 # This lets folks inject Nginx config files
