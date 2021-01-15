@@ -1,0 +1,5 @@
+docker build -t dcoforadmin:latest .
+
+docker run --name dcoforadmin -d -p 80:80 -p 443:443 -v "c:\dockervolumes\webroots:/webroots" -v "c:\dockervolumes\etc-letsencrypt:/etc/letsencrypt" -v "c:\dockervolumes\nginx-conf-d:/etc/nginx/conf.d" dcoforadmin
+
+docker start dcoforadmin
