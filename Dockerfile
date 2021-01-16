@@ -21,11 +21,13 @@ VOLUME /etc/letsencrypt
 # This lets folks inject Nginx config files
 VOLUME /etc/nginx/conf.d
 
+VOLUME /scripts
+
 # Make the directories for the domains to manage
 # /webroots/DOMAIN.TLD will be mounted 
 # into each proxy as http://DOMAIN.TLD/.well-known
 
-COPY *.conf /etc/nginx/conf.d
+COPY *.conf /etc/nginx/conf.d/
 
 
 WORKDIR /scripts

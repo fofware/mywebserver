@@ -1,5 +1,11 @@
-docker build -t dcoforadmin:latest .
+docker build -t mywebserver:latest .
 
-docker run --name dcoforadmin -d -p 80:80 -p 443:443 -v "c:\dockervolumes\webroots:/webroots" -v "c:\dockervolumes\etc-letsencrypt:/etc/letsencrypt" -v "c:\dockervolumes\nginx-conf-d:/etc/nginx/conf.d" dcoforadmin
+para windows con cmd no powershell
+docker run --name mywebserver -d --restart always -p 80:80 -p 443:443 -v "%CD%\volumes\webroots:/webroots" -v "%CD%\volumes\etc-letsencrypt:/etc/letsencrypt" -v "%CD%\volumes\nginx-conf-d:/etc/nginx/conf.d" -v "%CD%\volumes\scripts:/scripts" mywebserver
 
-docker start dcoforadmin
+para linux
+docker run --name mywebserver -d --restart always -p 80:80 -p 443:443 -v "$PWD/volumes/webroots:/webroots" -v "$PWD/volumes/etc-letsencrypt:/etc/letsencrypt" -v "$PWD/volumes/nginx-conf-d:/etc/nginx/conf.d" -v "$PWD/volumes/scripts:/scripts" mywebserver
+
+docker exec -it mywebserver bash
+
+docker start mywebserver
