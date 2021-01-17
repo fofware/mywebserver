@@ -35,7 +35,7 @@ WORKDIR /scripts
 # This installs a Crontab entry which 
 # runs "certbot renew" on several days a week at 03:22 AM
 
-RUN echo "22 03 * * 2,7 root /usr/bin/certbot renew" >/etc/cron.d/certbot-renew
+RUN echo "22 3 * * 0,2,4,6 root /usr/bin/certbot renew" >/etc/cron.d/certbot-renew
 
 RUN echo "0,5,10,15,20,25,30,35,40,45,50,55 * * * * root /scripts/dnsrenew.sh" >/etc/cron.d/dnsrenew
 
